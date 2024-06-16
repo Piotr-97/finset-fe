@@ -1,0 +1,57 @@
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <div class='form-input text-center  mt-1'>
+    <mat-form-field appearance='fill'>
+      <mat-label>email</mat-label>
+      <input type="email" matInput [formControl]="controls.login">
+      <mat-error *ngIf="controls.login.invalid">{{ getErrorMessage(controls.login) }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class='form-input text-center'>
+    <mat-form-field appearance='fill'>
+      <mat-label>firstname</mat-label>
+      <input matInput [formControl]="controls.firstname">
+      <mat-error *ngIf="controls.firstname.invalid">{{ getErrorMessage(controls.firstname) }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class='form-input text-center'>
+    <mat-form-field appearance='fill'>
+      <mat-label>lastname</mat-label>
+      <input matInput [formControl]="controls.lastname">
+      <mat-error *ngIf="controls.lastname.invalid">{{ getErrorMessage(controls.lastname) }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class='form-input text-center'>
+    <mat-form-field appearance='fill'>
+      <mat-label>Mobile phone</mat-label>
+      <input type="number" matInput [formControl]="controls.mobilePhone">
+      <mat-error *ngIf="controls.mobilePhone.invalid">{{ getErrorMessage(controls.mobilePhone) }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class='form-input text-center'>
+    <mat-form-field appearance='fill'>
+      <mat-label>Password</mat-label>
+      <input type='password' matInput [formControl]="controls.password">
+      <mat-error *ngIf="controls.password.invalid">{{ getErrorMessage(controls.password) }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class='form-input text-center'>
+    <mat-form-field appearance='fill'>
+      <mat-label>repeat password</mat-label>
+      <input type='password' matInput [formControl]="controls.repeatedPassword">
+      <mat-error *ngIf="controls.repeatedPassword.invalid">{{ getErrorMessage(controls.repeatedPassword) }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="d-flex justify-content-center m-1">
+    <button mat-raised-button color="primary" class="centered-button-container" [disabled]="registerForm.invalid">
+      Register
+    </button>
+  </div>
+  <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" *ngIf='notMatchingPasswordsErr'>
+  {{ notMatchingPasswordsErr }}
+  <button type="button" class="btn-close" data-bs-popper="alert" aria-label="Close"
+          (click)=notMatchingPasswordsErr=null></button>
+</div>
+  <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" *ngIf="errorMsg$ | async as error">
+   {{error}}
+  </div>
+</form>
