@@ -4,7 +4,11 @@ import {RouterModule, Routes} from "@angular/router";
 
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'auth', loadChildren: () => import('../app/modules/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'settlements', loadChildren: () => import('../app/modules/settlements/settlements.module').then(m => m.SettlementsModule) }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

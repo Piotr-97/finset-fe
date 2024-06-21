@@ -19,7 +19,6 @@ export class AuthService {
   login(body: LoginData): Observable<IUser> {
    let iUserObservable = this.http.post<IUser>(`${this.apiUrl}/login`, body)
       .pipe(
-
           tap(response => this.handleLoginResponse(response))
       );
    iUserObservable.pipe(tap(response => console.log( "TOKEN "+response.token)));
@@ -34,22 +33,22 @@ export class AuthService {
     return this.http.post<AuthResponse>(`${this.apiUrl}/register`, body)
   }
 
-  activateAccount(uid: string): Observable<AuthResponse> {
-    const params = new HttpParams().append('uid', uid);
-    return this.http.get<AuthResponse>(`${this.apiUrl}/activate`, {params: params})
-  }
-
   resetPassword(body: ResetPasswordData): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/reset-password`, body)
   }
 
   changePassword(body: ChangePasswordData): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/reset-password`, body)
+    return this.http.patch<AuthResponse>(`${this.apiUrl}/reset-password`, body)
   }
 
   private handleLoginResponse(response: IUser) {
     const token = response.token;
     this.storeToken(token);
+    this.storeRole(response);
+  }
+
+  private storeRole(response: IUser) {
+    sessionStorage.setItem("role", response.role)
   }
 
   private storeToken(token: string) {

@@ -14,6 +14,7 @@ import {NotifierModule, NotifierOptions} from "angular-notifier";
 import {AuthEffects} from "./modules/auth/store/auth.effects";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthHandlingInterceptor} from "./modules/core/interceptors/auth-handling.interceptor";
+import {SettlementsModule} from "./modules/settlements/settlements.module";
 
 
 const customNotifier: NotifierOptions = {
@@ -33,7 +34,7 @@ const customNotifier: NotifierOptions = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     NotifierModule.withConfig(customNotifier),
@@ -41,7 +42,7 @@ const customNotifier: NotifierOptions = {
     BrowserAnimationsModule,
     CoreModule,
     AuthModule,
-    AppRoutingModule,
+    SettlementsModule,
     StoreModule.forRoot({auth: authReducer}, {}),
     AppRoutingModule,
     EffectsModule.forRoot([AuthEffects]),

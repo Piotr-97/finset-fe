@@ -15,8 +15,6 @@ export class HeaderComponent {
   user$: Observable<User | null> = this.store.select(selectAuthUser);
 
   constructor(private store: Store<AppState>) {
-
-
   }
 
 }
