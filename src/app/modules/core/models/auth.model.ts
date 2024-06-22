@@ -3,10 +3,11 @@ export interface IUser{
    email: string;
    role: string;
    token:string;
+   uuid: string;
 
 }
 export class User implements IUser{
-  constructor(public email: string, public role: string, public token: string) {
+  constructor(public email: string, public role: string, public token: string, public uuid: string) {
 
   }
 }

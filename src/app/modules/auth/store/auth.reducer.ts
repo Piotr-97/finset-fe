@@ -23,7 +23,7 @@ const _authReducer = createReducer(initialState,
   on(AuthActions.loginSuccess,(state,action)=>({
     ...state,
     loading:false,
-    user: new User(action.user.email,action.user.role,action.user.token),
+    user: new User(action.user.email,action.user.role,action.user.token,action.user.uuid),
     error: null
   })),
   on(AuthActions.loginFailure,(state,action)=>({

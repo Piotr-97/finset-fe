@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../../../environments/environment";
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {ChangePasswordData, LoginForm} from "../models/forms.model";
+import {HttpClient} from "@angular/common/http";
+import {ChangePasswordData} from "../models/forms.model";
 import {AuthResponse, IUser, LoginData, RegisterData, ResetPasswordData} from "../models/auth.model";
 import {Observable, tap} from "rxjs";
 
@@ -17,12 +17,10 @@ export class AuthService {
   }
 
   login(body: LoginData): Observable<IUser> {
-   let iUserObservable = this.http.post<IUser>(`${this.apiUrl}/login`, body)
-      .pipe(
-          tap(response => this.handleLoginResponse(response))
-      );
-   iUserObservable.pipe(tap(response => console.log( "TOKEN "+response.token)));
-   return iUserObservable;
+    return this.http.post<IUser>(`${this.apiUrl}/login`, body)
+     .pipe(
+       tap(response => this.handleLoginResponse(response))
+     );
   }
 
   logout(): Observable<IUser> {
@@ -45,10 +43,14 @@ export class AuthService {
     const token = response.token;
     this.storeToken(token);
     this.storeRole(response);
+    this.storeUuid(response)
   }
 
   private storeRole(response: IUser) {
     sessionStorage.setItem("role", response.role)
+  }
+  private storeUuid(response: IUser) {
+    sessionStorage.setItem("uuid", response.uuid)
   }
 
   private storeToken(token: string) {
