@@ -37,3 +37,24 @@ export interface AddSettlementForm {
   amountOfMoney: FormControl<string>;
   description: FormControl<string>;
 }
+
+export interface AddProjectForm {
+  name:FormControl<string>;
+  clientUUid:FormControl<string>;
+}
+
+export interface AddWorkUnderProjectForm {
+  name:FormControl<string>;
+  projectUuid:FormControl<string>;
+  description:FormControl<string>;
+}
+
+export interface AddAddressForm{
+  address: FormControl<string>;
+}
+
+export interface AddClientForm{
+  nip: FormControl<string>;
+  name:FormControl<string>;
+  address: FormControl<string>;
+}

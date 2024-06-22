@@ -23,10 +23,12 @@ export class AuthHandlingInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = sessionStorage.getItem('authToken');
     const role = sessionStorage.getItem('role');
+    const employeeUUid = sessionStorage.getItem('uuid');
 
     const isNoAuthEndpoint = NO_AUTH_ENDPOINTS.some(url => req.url.includes(url));
     console.log('Received token:', token);
     console.log('role',role );
+    console.log('uuid', employeeUUid)
     if (token && !isNoAuthEndpoint) {
       const cloned = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${token}`)
