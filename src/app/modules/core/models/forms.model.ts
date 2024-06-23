@@ -38,23 +38,30 @@ export interface AddSettlementForm {
   description: FormControl<string>;
 }
 
-export interface AddProjectForm {
+export interface ProjectForm {
   name:FormControl<string>;
   clientUUid:FormControl<string>;
 }
 
-export interface AddWorkUnderProjectForm {
+export interface WorkUnderProjectForm {
   name:FormControl<string>;
   projectUuid:FormControl<string>;
   description:FormControl<string>;
 }
 
-export interface AddAddressForm{
+export interface AddressForm{
   address: FormControl<string>;
 }
 
-export interface AddClientForm{
+export interface ClientForm{
   nip: FormControl<string>;
   name:FormControl<string>;
   address: FormControl<string>;
 }
+
+export interface AnswerForSettlementForm{
+  settlementType: FormControl<string>;
+  settlementUUID:FormControl<string>;
+  settlementAnswerStatus:FormControl<string>;
+}
+
