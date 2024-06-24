@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {ChangePasswordData} from "../models/forms.model";
-import {AuthResponse, IUser, LoginData, RegisterData, ResetPasswordData} from "../models/auth.model";
+import {AuthResponse, InvitationData, IUser, LoginData, RegisterData, ResetPasswordData} from "../models/auth.model";
 import {Observable, tap} from "rxjs";
 
 @Injectable({
@@ -60,6 +60,7 @@ export class AuthService {
   getToken(): string | null {
     return sessionStorage.getItem('authToken');
   }
+
 
 
 }

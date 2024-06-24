@@ -1,0 +1,19 @@
+.details-button {
+  color: green;
+  font-size: 12px;
+}
+
+.edit-button {
+  color: yellow;
+  font-size: 12px;
+}
+
+.delete-button {
+  color: red;
+  font-size: 12px;
+}
+
+.mat-button {
+  min-width: 36px;
+  padding: 0 8px;
+}

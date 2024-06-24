@@ -1,1 +1,25 @@
-<p>projects-form works!</p>
+<form [formGroup]="projectForm" (ngSubmit)="onProjectAdd()">
+  <div class='form-input text-center  mt-1'>
+    <mat-form-field appearance='fill'>
+      <mat-label>Name</mat-label>
+      <input matInput [formControl]="controls.name">
+      <mat-error *ngIf="controls.name.invalid">{{ getErrorMessage(controls.name) }}</mat-error>
+    </mat-form-field>
+  </div>
+<div class='form-input text-center'>
+  <mat-form-field appearance="fill">
+    <mat-label>Wybierz clientUUid</mat-label>
+    <mat-select [(ngModel)]="client" name="client" required>
+      <mat-option *ngFor="let client of clients" [value]="client.uuid">{{ client.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="d-flex justify-content-center m-1">
+  <button mat-raised-button color="primary" class="centered-button-container">
+    Submit
+  </button>
+</div>
+</form>
+
+
+

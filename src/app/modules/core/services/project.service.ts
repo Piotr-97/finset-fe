@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Project, ProjectResponse} from "../models/project.model";
+import {Client, Project, ProjectRequest, ProjectCodeResponse} from "../models/project.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  apiUrl = `${environment.apiUrl}/project`;
+  apiUrl = `${environment.apiUrl}/projects`;
 
   constructor(private http: HttpClient) {
 
@@ -22,8 +22,8 @@ export class ProjectService {
   getProjectByUuid(uuid:string) :Observable<Project> {
     return this.http.get<Project>(`${this.apiUrl}/${uuid}`);
   }
-  addNewProject(body: ProjectResponse) :Observable<Project> {
-    return this.http.post<Project>(`${this.apiUrl}/project`, body);
+  addNewProject(body: ProjectRequest) :Observable<ProjectCodeResponse> {
+    return this.http.post<ProjectCodeResponse>(`${this.apiUrl}`, body);
   }
 
 
@@ -36,4 +36,7 @@ export class ProjectService {
   * */
 
 
+  getClients(): Observable<Client[]> {
+    return this.http.get<Client[]>(`${this.apiUrl}/clients`);
+  }
 }

@@ -17,7 +17,7 @@ export class AuthEffects {
         return this.authService.login(action.loginData).pipe(
           map((user) => AuthActions.loginSuccess({user: {...user}})),
           catchError((err) =>
-            of(AuthActions.loginFailure({error: 'ERROR'})))
+            of(AuthActions.loginFailure({error: 'Error during the login'})))
         );
       })
     )

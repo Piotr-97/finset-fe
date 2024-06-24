@@ -20,11 +20,10 @@ export interface WorkUnderProject {
 }
 
 export interface Project {
-  id: string;
   clientName: string;
-  clientUuid: string;
-  worksUnderProject: WorkUnderProject;
-  projectName: string;
+  projectUuid: string;
+  worksUnderProject: WorkUnderProject[];
+  name: string;
 }
 
 export interface employee{
@@ -34,6 +33,19 @@ export interface employee{
   uuid: string;
 }
 
-export interface ProjectResponse{
+export interface ProjectRequest {
+  name: string;
+  clientUuid: string;
+}
 
+export interface Client{
+  uuid: string;
+  name: string;
+  nip: string;
+  address: string;
+}
+
+export  interface ProjectCodeResponse {
+  code: string;
+  message: string;
 }

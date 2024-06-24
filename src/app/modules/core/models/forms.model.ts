@@ -21,6 +21,10 @@ export interface PasswdRecoveryForm {
   email: FormControl<string>;
 }
 
+export interface InvitationForm {
+  email: FormControl<string>;
+}
+
 export interface ChangePasswordData {
   password: string;
   uid: string;
@@ -40,7 +44,7 @@ export interface AddSettlementForm {
 
 export interface ProjectForm {
   name:FormControl<string>;
-  clientUUid:FormControl<string>;
+  clientUuid:FormControl<string>;
 }
 
 export interface WorkUnderProjectForm {
@@ -63,5 +67,8 @@ export interface AnswerForSettlementForm{
   settlementType: FormControl<string>;
   settlementUUID:FormControl<string>;
   settlementAnswerStatus:FormControl<string>;
+  description:FormControl<string>;
+
 }
+
 

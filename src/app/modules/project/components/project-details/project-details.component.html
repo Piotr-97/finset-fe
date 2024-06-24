@@ -1,0 +1,36 @@
+<div class="project-details">
+  <h2>{{ project.name }}</h2>
+  <h4>{{ project.clientName }}</h4>
+  <p><strong>Project UUID:</strong> {{ project.projectUuid }}</p>
+</div>
+
+<mat-table [dataSource]="project.worksUnderProject" class="mat-elevation-z8">
+  <!-- UUID Column -->
+  <ng-container matColumnDef="uuid">
+    <mat-header-cell *matHeaderCellDef> UUID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.uuid }} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.description }} </mat-cell>
+  </ng-container>
+
+  <!-- Settlements Column -->
+  <ng-container matColumnDef="settlements">
+    <mat-header-cell *matHeaderCellDef> Settlements </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a class="btn btn-sm btn-success mx-1" routerLinkActive='active' [routerLink]="['/details', project.projectUuid]">Show Settlements</a>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

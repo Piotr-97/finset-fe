@@ -34,3 +34,7 @@ export interface ResetPasswordData{
   email: string;
 }
 
+export interface InvitationData{
+  email: string;
+}
+

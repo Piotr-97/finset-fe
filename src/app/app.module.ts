@@ -15,6 +15,8 @@ import {AuthEffects} from "./modules/auth/store/auth.effects";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthHandlingInterceptor} from "./modules/core/interceptors/auth-handling.interceptor";
 import {SettlementsModule} from "./modules/settlements/settlements.module";
+import {ProjectModule} from "./modules/project/project.module";
+import {AdminModule} from "./modules/admin/admin.module";
 
 
 const customNotifier: NotifierOptions = {
@@ -47,6 +49,8 @@ const customNotifier: NotifierOptions = {
     AppRoutingModule,
     EffectsModule.forRoot([AuthEffects]),
     RouterOutlet,
+    ProjectModule,
+    AdminModule
 
   ],
   providers: [

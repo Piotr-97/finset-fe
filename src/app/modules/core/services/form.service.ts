@@ -1,6 +1,14 @@
 import {Injectable} from '@angular/core';
 import {FormControl, FormGroup, isFormGroup, Validators} from "@angular/forms";
-import {AddSettlementForm, LoginForm, PasswdRecoveryForm, PasswordsForm, RegisterForm} from "../models/forms.model";
+import {
+  AddressForm,
+  AddSettlementForm, AnswerForSettlementForm, ClientForm, InvitationForm,
+  LoginForm,
+  PasswdRecoveryForm,
+  PasswordsForm,
+  ProjectForm,
+  RegisterForm, WorkUnderProjectForm
+} from "../models/forms.model";
 import {equivalentValidators} from "../../shared/validators/equivalent.validator";
 
 @Injectable({
@@ -137,7 +145,7 @@ export class FormService {
           validators: [
             Validators.required,
             Validators.minLength(8),
-            Validators.maxLength(25)], nonNullable: true
+            Validators.maxLength(120)], nonNullable: true
         }),
       startAddress: new FormControl('',
         {
@@ -150,14 +158,14 @@ export class FormService {
           validators: [
             Validators.required,
             Validators.minLength(8),
-            Validators.maxLength(25)], nonNullable: false
+            Validators.maxLength(120)], nonNullable: false
         }),
       country: new FormControl('',
         {
           validators: [
             Validators.required,
             Validators.minLength(8),
-            Validators.maxLength(25)], nonNullable: false
+            Validators.maxLength(120)], nonNullable: false
         }),
       amountOfMoney: new FormControl('',
         {
@@ -176,6 +184,139 @@ export class FormService {
 
     });
   }
+
+  initProjectForm(): FormGroup<ProjectForm> {
+    //  name:FormControl<string>;
+    //   clientUUid:FormControl<string>;
+    return new FormGroup({
+        name: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+        ], nonNullable: true
+          }),
+      clientUuid: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ],
+            nonNullable: true
+          }),
+      },
+    )
+  }
+
+  initWorkUnderProjectForm(): FormGroup<WorkUnderProjectForm> {
+    return new FormGroup({
+        name: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ], nonNullable: true
+          }),
+      projectUuid: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ],
+            nonNullable: true
+          }),
+      description: new FormControl('',
+        {
+          validators: [
+            Validators.required,
+          ],
+          nonNullable: true
+        }),
+      },
+    )
+  }
+
+  initClientForm(): FormGroup<ClientForm> {
+    return new FormGroup({
+        name: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ], nonNullable: true
+          }),
+        nip: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ],
+            nonNullable: true
+          }),
+        address: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ],
+            nonNullable: true
+          }),
+      },
+    )
+  }
+
+  initAddressForm(): FormGroup<AddressForm> {
+    return new FormGroup({
+        address: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ],
+            nonNullable: true
+          }),
+      },
+    )
+  }
+
+  initAnswerForSettlementForm(): FormGroup<AnswerForSettlementForm> {
+    return new FormGroup({
+      settlementType: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ], nonNullable: true
+          }),
+      settlementUUID: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ],
+            nonNullable: true
+          }),
+      settlementAnswerStatus: new FormControl('',
+          {
+            validators: [
+              Validators.required,
+            ],
+            nonNullable: true
+          }),
+      description: new FormControl('',
+        {
+          validators: [
+            Validators.required,
+          ],
+          nonNullable: true
+        }),
+      },
+    )
+  }
+
+  initInvitationForm(): FormGroup<InvitationForm> {
+    return new FormGroup({
+      email: new FormControl('', {
+        validators: [
+          Validators.required,
+          Validators.email,],
+        nonNullable: true,
+      })
+    });
+  }
+
+
+
 
   getErrorMessage(control: FormControl): string {
     if (control.hasError('required')) {

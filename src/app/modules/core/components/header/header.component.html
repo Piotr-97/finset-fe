@@ -39,11 +39,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAcc" role="button" data-bs-toggle="dropdown"
                aria-expanded="false">
-              ACCOUNTANT
+              Accountant
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Przejrzyj rozliczenie</a></li>
-              <li><a class="dropdown-item" href="#">Dodaj rozliczenie</a></li>
+              <li><a class="dropdown-item" routerLink="answers" routerLinkActive='active'  >Show Answers for settlements</a></li>
+              <li><a  class="dropdown-item" routerLink="addanswer" routerLinkActive='active'>Add Answer for Settlement</a></li>
             </ul>
           </li>
         </ng-container>
@@ -54,8 +54,20 @@
               ADMIN
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">send invitatiom</a></li>
+              <li><a  class="dropdown-item" routerLink="invite" routerLinkActive='active'>Send invitation</a></li>
               <li><a class="dropdown-item" href="#">Dodaj rozliczenie</a></li>
+            </ul>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="(user$ | async) !== null">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+              Projects
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="addproject" routerLinkActive='active'  >Add new Project</a></li>
+              <li><a class="dropdown-item" routerLink="projects" routerLinkActive='active'  >Show projects</a></li>
             </ul>
           </li>
         </ng-container>
@@ -63,3 +75,6 @@
     </div>
   </div>
 </nav>
+
+
+
