@@ -30,8 +30,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" routerLink="addsettlement" routerLinkActive='active'  >Add Settlement</a></li>
               <li><a class="dropdown-item" routerLink="settlements" routerLinkActive='active' >View your settlements</a></li>
-              <li><a class="dropdown-item" routerLink="statuses" routerLinkActive='active' >Check statuses</a></li>
-              <li><a class="dropdown-item"  routerLink="settlements" routerLinkActive='active' >Dodaj rozliczenie</a></li>
+              <li><a class="dropdown-item" routerLink="check-statuses" routerLinkActive='active' >Check statuses</a></li>
             </ul>
           </li>
         </ng-container>
@@ -42,8 +41,9 @@
               Accountant
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="answers" routerLinkActive='active'  >Show Answers for settlements</a></li>
-              <li><a  class="dropdown-item" routerLink="addanswer" routerLinkActive='active'>Add Answer for Settlement</a></li>
+              <li><a class="dropdown-item" routerLink="view-answer" routerLinkActive='active'  >Show Answers for settlements</a></li>
+              <li><a  class="dropdown-item" routerLink="add-answer" routerLinkActive='active'>Add Answer for settlement</a></li>
+              <li><a  class="dropdown-item" routerLink="addanswer" routerLinkActive='active'>Show all settlements</a></li>
             </ul>
           </li>
         </ng-container>
@@ -55,7 +55,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a  class="dropdown-item" routerLink="invite" routerLinkActive='active'>Send invitation</a></li>
-              <li><a class="dropdown-item" href="#">Dodaj rozliczenie</a></li>
+              <li><a  class="dropdown-item" routerLink="change-role" routerLinkActive='active'>Change role</a></li>
             </ul>
           </li>
         </ng-container>
@@ -68,6 +68,8 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" routerLink="addproject" routerLinkActive='active'  >Add new Project</a></li>
               <li><a class="dropdown-item" routerLink="projects" routerLinkActive='active'  >Show projects</a></li>
+              <li><a class="dropdown-item" routerLink="works" routerLinkActive='active'  >Show all works</a></li>
+              <li><a class="dropdown-item" routerLink="create-work" routerLinkActive='active'  >Add new Work</a></li>
             </ul>
           </li>
         </ng-container>

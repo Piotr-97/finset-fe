@@ -1,7 +1,7 @@
 <form [formGroup]="addSettlementForm" (ngSubmit)="onAddSettlement()">
   <div class='form-input text-center mt-1'>
     <mat-form-field>
-      <mat-label >Settlement Type</mat-label>
+      <mat-label>Settlement Type</mat-label>
       <mat-select [formControl]="controls.settlementType">
         <mat-option value="general">General</mat-option>
         <mat-option value="taxi">Taxi</mat-option>
@@ -13,17 +13,17 @@
 
   <div class='form-input text-center'>
     <mat-form-field>
-    <mat-label>Project</mat-label>
-    <mat-select>
-      <mat-option value="one">project id</mat-option>
-    </mat-select>
+      <mat-label>Project</mat-label>
+      <mat-select [formControl]="controls.projectId" (selectionChange)="onProjectChange($event.value)">
+        <mat-option *ngFor="let project of projects" [value]="project.projectUuid">{{ project.name }}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
   <div class='form-input text-center'>
     <mat-form-field>
       <mat-label>Work</mat-label>
-      <mat-select>
-        <mat-option value="one">work id</mat-option>
+      <mat-select [formControl]="controls.workId">
+        <mat-option *ngFor="let work of works" [value]="work.uuid">{{ work.name }}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -34,26 +34,26 @@
     </mat-form-field>
   </div>
   <ng-container *ngIf="controls.settlementType?.getRawValue() === 'taxi'">
-  <div class='form-input text-center' >
-    <mat-form-field appearance='fill'>
-      <mat-label>Address start</mat-label>
-      <textarea matInput rows="3" cols="4"></textarea>
-    </mat-form-field>
-  </div>
-  <div class='form-input text-center'>
-    <mat-form-field appearance='fill'>
-      <mat-label>Address target</mat-label>
-      <textarea matInput rows="3" cols="4"></textarea>
-    </mat-form-field>
-  </div>
+    <div class='form-input text-center'>
+      <mat-form-field appearance='fill'>
+        <mat-label>Address start</mat-label>
+        <textarea matInput rows="3" cols="4"></textarea>
+      </mat-form-field>
+    </div>
+    <div class='form-input text-center'>
+      <mat-form-field appearance='fill'>
+        <mat-label>Address target</mat-label>
+        <textarea matInput rows="3" cols="4"></textarea>
+      </mat-form-field>
+    </div>
   </ng-container>
   <ng-container *ngIf="controls.settlementType?.getRawValue() === 'businesstrip'">
-  <div class='form-input text-center'>
-    <mat-form-field appearance='fill'>
-      <mat-label>Country</mat-label>
-      <input type='text' matInput>
-    </mat-form-field>
-  </div>
+    <div class='form-input text-center'>
+      <mat-form-field appearance='fill'>
+        <mat-label>Country</mat-label>
+        <input type='text' matInput>
+      </mat-form-field>
+    </div>
   </ng-container>
   <div class='form-input text-center'>
     <mat-form-field appearance='fill'>

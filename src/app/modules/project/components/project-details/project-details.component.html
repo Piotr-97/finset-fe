@@ -27,7 +27,7 @@
   <ng-container matColumnDef="settlements">
     <mat-header-cell *matHeaderCellDef> Settlements </mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <a class="btn btn-sm btn-success mx-1" routerLinkActive='active' [routerLink]="['/details', project.projectUuid]">Show Settlements</a>
+      <a class="btn btn-sm btn-success mx-1" routerLinkActive='active' [routerLink]="['/works-settlement-detail',element.uuid]">Show Settlements</a>
     </mat-cell>
   </ng-container>
 

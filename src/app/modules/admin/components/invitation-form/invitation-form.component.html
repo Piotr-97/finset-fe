@@ -1,8 +1,9 @@
-<form [formGroup]="invitationForm" (ngSubmit)="onSendInvitation()">
+<form [formGroup]="invitationForm"  (ngSubmit)="onSendInvitation()">
   <div class='form-input text-center  mt-1'>
     <mat-form-field appearance='fill'>
       <mat-label>email</mat-label>
-      <input type="email" matInput>
+      <input type="email" matInput [formControl]="invitationForm.controls.email">
+
     </mat-form-field>
   </div>
 

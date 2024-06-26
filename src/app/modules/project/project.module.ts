@@ -9,6 +9,9 @@ import {SharedModule} from "../shared/shared.module";
 import {MatTableModule} from "@angular/material/table";
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ProjectUpdateFormComponent } from './components/project-update-form/project-update-form.component';
+import { WorksSettlementsViewComponent } from './components/works-settlements-view/works-settlements-view.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 @NgModule({
@@ -16,7 +19,8 @@ import { ProjectUpdateFormComponent } from './components/project-update-form/pro
     ProjectsComponent,
     ProjectsFormComponent,
     ProjectDetailsComponent,
-    ProjectUpdateFormComponent
+    ProjectUpdateFormComponent,
+    WorksSettlementsViewComponent
   ],
     imports: [
         CommonModule,
@@ -25,6 +29,8 @@ import { ProjectUpdateFormComponent } from './components/project-update-form/pro
         ReactiveFormsModule,
         SharedModule,
         MatTableModule,
+        MatCardModule,
+        MatToolbarModule,
     ]
 })
 export class ProjectModule { }

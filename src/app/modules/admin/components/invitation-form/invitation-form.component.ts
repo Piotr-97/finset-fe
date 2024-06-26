@@ -4,6 +4,7 @@ import {FormService} from "../../../core/services/form.service";
 
 import {NotifierService} from "angular-notifier";
 import {SenderService} from "../../../core/services/sender.service";
+import {InvitationForm} from "../../../core/models/forms.model";
 
 @Component({
   selector: 'app-invitation-form',
@@ -11,7 +12,7 @@ import {SenderService} from "../../../core/services/sender.service";
   styleUrls: ['./invitation-form.component.css']
 })
 export class InvitationFormComponent {
-  invitationForm: FormGroup = this.formService.initInvitationForm();
+  invitationForm: FormGroup<InvitationForm> = this.formService.initInvitationForm();
   errorMessage: null | string = null;
   constructor(private formService: FormService, private senderService: SenderService, private notifierService: NotifierService) {
   }

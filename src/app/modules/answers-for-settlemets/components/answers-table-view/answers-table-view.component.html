@@ -1,0 +1,37 @@
+<table mat-table [dataSource]="answer" class="mat-elevation-z8">
+
+  <!-- UUID Column -->
+  <ng-container matColumnDef="uuid">
+    <th mat-header-cell *matHeaderCellDef> UUID </th>
+    <td mat-cell *matCellDef="let element"> {{element.uuid}} </td>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <!-- Answer For Settlement Column -->
+  <ng-container matColumnDef="answerForSettlement">
+    <th mat-header-cell *matHeaderCellDef> Answer </th>
+    <td mat-cell *matCellDef="let element"> {{element.answerForSettlement}} </td>
+  </ng-container>
+
+  <!-- Settlement Answer Status Column -->
+  <ng-container matColumnDef="settlementAnswerStatus">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.settlementAnswerStatus}} </td>
+  </ng-container>
+
+  <!-- Settlements Column -->
+  <ng-container matColumnDef="settlements">
+    <th mat-header-cell *matHeaderCellDef> Settlements </th>
+    <td mat-cell *matCellDef="let element">
+      <a class="btn btn-sm btn-success mx-1" routerLinkActive='active' [routerLink]="['/answer-details',element.uuid ]">Show details</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

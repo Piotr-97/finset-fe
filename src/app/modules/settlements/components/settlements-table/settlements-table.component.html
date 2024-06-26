@@ -1,32 +1,70 @@
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="settlements" class="mat-table">
+<mat-toolbar color="primary">
+  <span>Settlements</span>
+</mat-toolbar>
+<mat-card>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="projectName">
-      <th mat-header-cell *matHeaderCellDef> Project Name </th>
-      <td mat-cell *matCellDef="let project"> {{project.name}} </td>
+    <!-- UUID Column -->
+    <ng-container matColumnDef="uuid">
+      <th mat-header-cell *matHeaderCellDef> UUID </th>
+      <td mat-cell *matCellDef="let element"> {{element.uuid}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="clientName">
-      <th mat-header-cell *matHeaderCellDef> Client Name </th>
-      <td mat-cell *matCellDef="let project"> {{project.clientName}} </td>
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="clientUuid">
-      <th mat-header-cell *matHeaderCellDef> Client UUID </th>
-      <td mat-cell *matCellDef="let project"> {{project.clientUuid}} </td>
+    <!-- Settlement Type Column -->
+    <ng-container matColumnDef="settlementType">
+      <th mat-header-cell *matHeaderCellDef> Settlement Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.settlementType}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let project">
-        <a class="btn btn-sm btn-success mx-1" [routerLink]="['/projects', project.clientUuid, 'details']">Sprawdź szczegóły</a>
-        <a class="btn btn-sm btn-warning mx-1 text-dark" [routerLink]="['/projects', project.clientUuid, 'edit']">Modyfikuj</a>
-        <a class="btn btn-sm btn-danger mx-1" [routerLink]="['/projects', project.clientUuid, 'delete']">Usuń</a>
+    <!-- Project ID Column -->
+    <ng-container matColumnDef="projectId">
+      <th mat-header-cell *matHeaderCellDef> Project ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.projectId}} </td>
+    </ng-container>
 
-      </td>
+    <!-- Work ID Column -->
+    <ng-container matColumnDef="workId">
+      <th mat-header-cell *matHeaderCellDef> Work ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.workId}} </td>
+    </ng-container>
+
+    <!-- Amount of Money Column -->
+    <ng-container matColumnDef="amountOfMoney">
+      <th mat-header-cell *matHeaderCellDef> Amount of Money </th>
+      <td mat-cell *matCellDef="let element"> {{element.amountOfMoney}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Employee ID Column -->
+    <ng-container matColumnDef="employeeId">
+      <th mat-header-cell *matHeaderCellDef> Employee ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+    </ng-container>
+
+    <!-- Name and Lastname Column -->
+    <ng-container matColumnDef="nameAndLastname">
+      <th mat-header-cell *matHeaderCellDef> Name and Lastname </th>
+      <td mat-cell *matCellDef="let element"> {{element.nameAndLastname}} </td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-</div>
+</mat-card>

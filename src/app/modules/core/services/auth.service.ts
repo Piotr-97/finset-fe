@@ -2,7 +2,14 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {ChangePasswordData} from "../models/forms.model";
-import {AuthResponse, InvitationData, IUser, LoginData, RegisterData, ResetPasswordData} from "../models/auth.model";
+import {
+  AuthResponse,
+  IUser,
+  LoginData,
+  RegisterData,
+  ResetPasswordData,
+  UserData
+} from "../models/auth.model";
 import {Observable, tap} from "rxjs";
 
 @Injectable({
@@ -39,6 +46,14 @@ export class AuthService {
     return this.http.patch<AuthResponse>(`${this.apiUrl}/reset-password`, body)
   }
 
+  changeRole(body: UserData): Observable<AuthResponse> {
+    return this.http.patch<AuthResponse>(`${this.apiUrl}/change-role`, body)
+  }
+
+  getUsers(): Observable<UserData[]> {
+    return this.http.get<UserData[]>(`${this.apiUrl}/users`)
+  }
+
   private handleLoginResponse(response: IUser) {
     const token = response.token;
     this.storeToken(token);
@@ -60,7 +75,5 @@ export class AuthService {
   getToken(): string | null {
     return sessionStorage.getItem('authToken');
   }
-
-
 
 }

@@ -37,4 +37,8 @@ export interface ResetPasswordData{
 export interface InvitationData{
   email: string;
 }
+export interface UserData {
+  email: string;
+  role: string;
+}
 

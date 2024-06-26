@@ -19,7 +19,7 @@ export class ProjectService {
     return this.http.get<Project[]>(`${this.apiUrl}`);
   }
 
-  getProjectByUuid(uuid:string) :Observable<Project> {
+  getProjectByUuid(uuid: null | string ) :Observable<Project> {
     return this.http.get<Project>(`${this.apiUrl}/${uuid}`);
   }
   addNewProject(body: ProjectRequest) :Observable<ProjectCodeResponse> {

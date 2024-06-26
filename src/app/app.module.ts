@@ -17,6 +17,7 @@ import {AuthHandlingInterceptor} from "./modules/core/interceptors/auth-handling
 import {SettlementsModule} from "./modules/settlements/settlements.module";
 import {ProjectModule} from "./modules/project/project.module";
 import {AdminModule} from "./modules/admin/admin.module";
+import {AnswersForSettlementsModule} from "./modules/answers-for-settlemets/answers-for-settlements.module";
 
 
 const customNotifier: NotifierOptions = {
@@ -50,7 +51,8 @@ const customNotifier: NotifierOptions = {
     EffectsModule.forRoot([AuthEffects]),
     RouterOutlet,
     ProjectModule,
-    AdminModule
+    AdminModule,
+    AnswersForSettlementsModule
 
   ],
   providers: [

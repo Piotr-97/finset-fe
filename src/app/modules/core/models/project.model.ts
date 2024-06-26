@@ -9,6 +9,15 @@ export interface Settlement {
   employeeId: string
   nameAndLastname: string
   date: string;
+  answers: AnswerForSettlement[];
+}
+
+export interface AnswerForSettlement {
+  uuid: string;
+  date: string;
+  settlements: Settlement[];
+  answerForSettlement: string;
+  settlementAnswerStatus: string;
 }
 
 export interface WorkUnderProject {
@@ -26,7 +35,7 @@ export interface Project {
   name: string;
 }
 
-export interface employee{
+export interface employee {
   firstname: string;
   lastname: string;
   email: string;
@@ -38,14 +47,14 @@ export interface ProjectRequest {
   clientUuid: string;
 }
 
-export interface Client{
+export interface Client {
   uuid: string;
   name: string;
   nip: string;
   address: string;
 }
 
-export  interface ProjectCodeResponse {
+export interface ProjectCodeResponse {
   code: string;
   message: string;
 }

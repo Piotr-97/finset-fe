@@ -7,7 +7,7 @@ import {StatusViewComponent} from "./components/status-view/status-view.componen
 
 const routes: Routes = [{ path : 'addsettlement', component : SettlementFormComponent},
   { path : 'settlements', component : SettlementsTableComponent},
-  { path : 'status', component : StatusViewComponent},
+  { path : 'check-statuses', component : StatusViewComponent},
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -20,7 +20,7 @@
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let project">
         <a class="btn btn-sm btn-success mx-1" routerLinkActive='active' [routerLink]="['/details', project.projectUuid]">Show details</a>
-        <a class="btn btn-sm btn-warning mx-1 text-dark" [routerLink]="['/projects', project.clientUuid, 'Edit']">edit</a>
+        <a class="btn btn-sm btn-warning mx-1 text-dark" [routerLink]="['/projects/edit', project.uuid, 'Edit']">edit</a>
         <a class="btn btn-sm btn-danger mx-1" [routerLink]="['/projects', project.clientUuid, 'delete']">Delete</a>
 
       </td>
